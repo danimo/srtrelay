@@ -15,7 +15,8 @@ jobs:
     - name: Build Debian package
       uses: jtdor/build-deb-action@v1
       with:
-        signed: false
+        buildpackage-opts: --build=binary --no-sign 
+        docker-image: debian:bookworm-backports
 
     - name: Upload .deb to GitHub Release
       uses: softprops/action-gh-release@v2
